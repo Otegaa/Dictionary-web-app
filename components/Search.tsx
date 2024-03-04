@@ -1,10 +1,20 @@
-const Search = () => {
+import React from 'react';
+
+interface Props {
+  word: string;
+  handleGetWord: () => void;
+  handleChangeWord: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Search = ({ word, handleGetWord, handleChangeWord }: Props) => {
   return (
     <div className="px-4">
       <form className="input flex items-center bg-[#E9E9E9]">
         <input
           type="text"
           placeholder="Search..."
+          value={word}
+          onChange={handleChangeWord}
           className="py-2 px-2 grow focus:outline-none"
         />
         <svg
@@ -12,6 +22,7 @@ const Search = () => {
           viewBox="0 0 16 16"
           fill="#A445ED"
           className="w-4 h-4 opacity-70"
+          onClick={handleGetWord}
         >
           <path
             fillRule="evenodd"
