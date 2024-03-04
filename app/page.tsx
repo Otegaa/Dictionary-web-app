@@ -16,11 +16,15 @@ export default function HomePage() {
     target: { value: SetStateAction<string> };
   }) => {
     setWord(e.target.value);
-    // console.log(word);
   };
 
-  const handleGetWord = async () => {
+  const handleGetWord = async (
+    e: React.FormEvent<HTMLFormElement> | undefined = undefined
+  ) => {
     try {
+      if (e) {
+        e.preventDefault();
+      }
       const res = await fetch(`${url}${word}`);
       if (!res.ok) {
         throw new Error('Failed to get word...');
@@ -28,8 +32,9 @@ export default function HomePage() {
       const data = await res.json();
       setReceivedData(data);
     } catch (error) {
-      // console.error(error);
+      console.log(error);
     }
+    setWord('');
   };
   return (
     <div>
