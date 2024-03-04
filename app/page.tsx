@@ -10,12 +10,13 @@ const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
 export default function HomePage() {
   const [word, setWord] = useState('');
+  const [receivedData, setReceivedData] = useState([]);
 
   const handleChangeWord = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setWord(e.target.value);
-    console.log(word);
+    // console.log(word);
   };
 
   const handleGetWord = async () => {
@@ -25,10 +26,9 @@ export default function HomePage() {
         throw new Error('Failed to get word...');
       }
       const data = await res.json();
-      console.log(data);
-      // return data;
+      setReceivedData(data);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
   return (
@@ -39,7 +39,7 @@ export default function HomePage() {
         handleGetWord={handleGetWord}
         word={word}
       />
-      <Word />
+      <Word receivedData={receivedData} />
     </div>
   );
 }
