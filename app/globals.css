@@ -2,39 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0; */
-  }
-}
-
-body {
-  /* color: rgb(var(--foreground-rgb)); */
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 /* Inter */
-/* @font-face {
-  font-family: 'InterRegular';
+@font-face {
+  font-family: 'Inter';
   src: url('../public/assets/fonts/inter/static/Inter-Regular.ttf')
     format('truetype');
   font-weight: normal;
@@ -42,16 +12,16 @@ body {
 }
 
 @font-face {
-  font-family: 'InterBold';
+  font-family: 'Inter';
   src: url('../public/assets/fonts/inter/static/Inter-Bold.ttf')
     format('truetype');
   font-weight: bold;
   font-style: normal;
-} */
+}
 
 /* Inconsolata */
-/* @font-face {
-  font-family: 'InconsolataRegular';
+@font-face {
+  font-family: 'Inconsolata';
   src: url('../public/assets/fonts/inconsolata/static/Inconsolata-Regular.ttf')
     format('truetype');
   font-weight: normal;
@@ -59,64 +29,14 @@ body {
 }
 
 @font-face {
-  font-family: 'InconsolataBold';
+  font-family: 'Inconsolata';
   src: url('../public/assets/fonts/inconsolata/static/Inconsolata-Bold.ttf')
     format('truetype');
   font-weight: bold;
   font-style: normal;
-} */
+}
 
 /* Lora */
-/* @font-face {
-  font-family: 'LoraRegular';
-  src: url('../public/assets/fonts/lora/static/Lora-Regular.ttf')
-    format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'LoraBold';
-  src: url('../public/assets/fonts/lora/static/Lora-Bold.ttf')
-    format('truetype');
-  font-weight: bold;
-  font-style: normal;
-} */
-
-/* styles.css */
-
-@font-face {
-  font-family: 'Inter';
-  src: url('../public/assets/fonts/inter/static/Inter-Regular.ttf')
-    format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('../public/assets/fonts/inter/static/Inter-Bold.ttf')
-    format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('../public/assets/fonts/inconsolata/static/Inconsolata-Regular.ttf')
-    format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('../public/assets/fonts/inconsolata/static/Inconsolata-Bold.ttf')
-    format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-
 @font-face {
   font-family: 'Lora';
   src: url('../public/assets/fonts/lora/static/Lora-Regular.ttf')
