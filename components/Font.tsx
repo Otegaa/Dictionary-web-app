@@ -9,6 +9,7 @@ const Font = () => {
   }) => {
     setSelectedFont(e.target.value);
   };
+
   return (
     <select
       name="font"
@@ -16,9 +17,6 @@ const Font = () => {
       value={selectedFont}
       onChange={handleChangeFont}
     >
-      <option disabled selected>
-        Select font
-      </option>
       <option value="inter">Inter</option>
       <option value="inconsolata"> Inconsolata</option>
       <option value="lora">Lora</option>
