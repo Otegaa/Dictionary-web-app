@@ -1,3 +1,5 @@
+import Synonym from './Synonym';
+
 interface Prop {
   receivedData: Record<string, any>[];
 }
@@ -24,6 +26,7 @@ const NounMeaning = ({ receivedData }: Prop) => {
           })}
         </ul>
       </div>
+      <Synonym receivedData={receivedData} />
     </div>
   );
 };
