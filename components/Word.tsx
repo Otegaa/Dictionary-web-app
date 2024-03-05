@@ -1,13 +1,14 @@
 import Image from 'next/image';
 
 import audioImg from '../public/assets/images/icon-play.svg';
+import NounMeaning from './NounMeaning';
 interface Prop {
   receivedData: Record<string, any>[];
 }
 
 const Word = ({ receivedData }: Prop) => {
   if (receivedData.length === 0) {
-    return <div>No data available</div>;
+    return <div>Start searching for a word...</div>;
   }
 
   const data = receivedData[0];
@@ -33,8 +34,8 @@ const Word = ({ receivedData }: Prop) => {
 
   console.log(data);
   return (
-    <>
-      <div className="px-4 py-4 flex justify-between items-center">
+    <div className="px-4 py-4">
+      <div className="flex justify-between items-center">
         <div className="flex flex-col">
           <h1 className="font-inter font-bold text-2xl">{data?.word}</h1>
           <h3 className="text-[#A445ED]">{data?.phonetic}</h3>
@@ -48,7 +49,8 @@ const Word = ({ receivedData }: Prop) => {
           />
         </div>
       </div>
-    </>
+      <NounMeaning receivedData={receivedData} />
+    </div>
   );
 };
 export default Word;

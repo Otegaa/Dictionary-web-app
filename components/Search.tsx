@@ -1,12 +1,14 @@
 import React from 'react';
+import Error from './Error';
+import Loading from './Loading';
 
 interface Props {
-  word: string;
-  handleGetWord: () => void;
-  handleChangeWord: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleGetWord: (event: React.FormEvent<HTMLFormElement>) => void;
+  error: string | null;
+  isLoading: Boolean;
 }
 
-const Search = ({ word, handleGetWord, handleChangeWord }: Props) => {
+const Search = ({ handleGetWord, error, isLoading }: Props) => {
   return (
     <div className="px-4">
       <form
@@ -16,8 +18,8 @@ const Search = ({ word, handleGetWord, handleChangeWord }: Props) => {
         <input
           type="text"
           placeholder="Search..."
-          value={word}
-          onChange={handleChangeWord}
+          name="searchWord"
+          required
           className="py-2 px-2 grow focus:outline-none"
         />
         <button type="submit">
@@ -35,6 +37,8 @@ const Search = ({ word, handleGetWord, handleChangeWord }: Props) => {
           </svg>
         </button>
       </form>
+      {error && <Error />}
+      {isLoading && <Loading />}
     </div>
   );
 };
