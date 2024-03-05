@@ -4,6 +4,7 @@ import audioImg from '../public/assets/images/icon-play.svg';
 import NounMeaning from './NounMeaning';
 import Loading from './Loading';
 import Error from './Error';
+import toast from 'react-hot-toast';
 
 interface Prop {
   receivedData: Record<string, any>[];
@@ -30,10 +31,10 @@ const Word = ({ receivedData, error, isLoading }: Prop) => {
         const audio = new Audio(audioUrl);
         audio.play();
       } else {
-        console.log('No audio available');
+        toast.error('No audio available');
       }
     } else {
-      console.log('No Audio unavailable');
+      toast.error('No audio available');
     }
   };
 

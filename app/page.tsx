@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Word from '../components/Word';
+import toast from 'react-hot-toast';
 
 const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -24,15 +25,14 @@ export default function HomePage() {
     try {
       const res = await fetch(`${url}${word}`);
       if (!res.ok) {
-        throw new Error('Failed to get word...');
+        throw new Error('Failed to get word');
       }
 
       const data = await res.json();
       setReceivedData(data);
       setError(null);
     } catch (error: any) {
-      setError(error.message);
-      console.error('Error fetching word:', error);
+      toast.error(error.message);
     } finally {
       setIsLoading(false);
     }

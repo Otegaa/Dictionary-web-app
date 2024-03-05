@@ -1,11 +1,3 @@
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  PromiseLikeOfReactNode,
-} from 'react';
-
 interface Prop {
   receivedData: Record<string, any>[];
 }
