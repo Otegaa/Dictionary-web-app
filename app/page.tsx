@@ -11,13 +11,11 @@ const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
   const [receivedData, setReceivedData] = useState<any[]>([]);
 
   const handleGetWord = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    setError(null);
 
     const formData = new FormData(e.currentTarget);
     const word = formData.get('searchWord');
@@ -25,12 +23,11 @@ export default function HomePage() {
     try {
       const res = await fetch(`${url}${word}`);
       if (!res.ok) {
-        throw new Error('Failed to get word');
+        throw new Error('Failed to get word..Please try again');
       }
 
       const data = await res.json();
       setReceivedData(data);
-      setError(null);
     } catch (error: any) {
       toast.error(error.message);
     } finally {
@@ -41,7 +38,7 @@ export default function HomePage() {
     <div>
       <Header />
       <Search handleGetWord={handleGetWord} isLoading={isLoading} />
-      <Word receivedData={receivedData} error={error} isLoading={isLoading} />
+      <Word receivedData={receivedData} isLoading={isLoading} />
     </div>
   );
 }

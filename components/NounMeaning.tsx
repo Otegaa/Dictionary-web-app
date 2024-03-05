@@ -18,7 +18,7 @@ const NounMeaning = ({ receivedData }: Prop) => {
       </div>
       <div>
         <h4>Meaning</h4>
-        <ul>
+        <ul className="marker:text-[#A445ED] list-disc list-outside ml-4">
           {filteredThreeDefinitions.map((def: { definition: any }) => {
             return <li key={def.definition}>{def.definition}</li>;
           })}

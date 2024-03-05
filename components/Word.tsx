@@ -3,16 +3,15 @@ import Image from 'next/image';
 import audioImg from '../public/assets/images/icon-play.svg';
 import NounMeaning from './NounMeaning';
 import Loading from './Loading';
-import Error from './Error';
+
 import toast from 'react-hot-toast';
 
 interface Prop {
   receivedData: Record<string, any>[];
-  error: string | null;
   isLoading: boolean;
 }
 
-const Word = ({ receivedData, error, isLoading }: Prop) => {
+const Word = ({ receivedData, isLoading }: Prop) => {
   if (receivedData.length === 0) {
     return <div>Start searching for a word...</div>;
   }
@@ -43,8 +42,6 @@ const Word = ({ receivedData, error, isLoading }: Prop) => {
     <div className="px-4 py-4">
       {isLoading ? (
         <Loading />
-      ) : error ? (
-        <Error />
       ) : (
         <>
           <div className="flex justify-between items-center">

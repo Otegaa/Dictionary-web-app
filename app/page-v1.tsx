@@ -44,7 +44,7 @@ export default function HomePage() {
       // handleGetWord={handleGetWord}
       // word={word}
       /> */}
-      <Word receivedData={receivedData} />
+      {/* <Word receivedData={receivedData} /> */}
     </div>
   );
 }
