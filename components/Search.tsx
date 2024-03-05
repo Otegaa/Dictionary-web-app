@@ -1,14 +1,11 @@
 import React from 'react';
-import Error from './Error';
-import Loading from './Loading';
 
 interface Props {
   handleGetWord: (event: React.FormEvent<HTMLFormElement>) => void;
-  error: string | null;
-  isLoading: Boolean;
+  isLoading: boolean;
 }
 
-const Search = ({ handleGetWord, error, isLoading }: Props) => {
+const Search = ({ handleGetWord, isLoading }: Props) => {
   return (
     <div className="px-4">
       <form
@@ -21,6 +18,7 @@ const Search = ({ handleGetWord, error, isLoading }: Props) => {
           name="searchWord"
           required
           className="py-2 px-2 grow focus:outline-none"
+          disabled={isLoading}
         />
         <button type="submit">
           <svg
@@ -37,8 +35,6 @@ const Search = ({ handleGetWord, error, isLoading }: Props) => {
           </svg>
         </button>
       </form>
-      {error && <Error />}
-      {isLoading && <Loading />}
     </div>
   );
 };

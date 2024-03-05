@@ -40,12 +40,8 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <Search
-        handleGetWord={handleGetWord}
-        error={error}
-        isLoading={isLoading}
-      />
-      <Word receivedData={receivedData} />
+      <Search handleGetWord={handleGetWord} isLoading={isLoading} />
+      <Word receivedData={receivedData} error={error} isLoading={isLoading} />
     </div>
   );
 }
