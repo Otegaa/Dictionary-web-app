@@ -5,6 +5,7 @@ import NounMeaning from './NounMeaning';
 import Loading from './Loading';
 
 import toast from 'react-hot-toast';
+import Verb from './Verb';
 
 interface Prop {
   receivedData: Record<string, any>[];
@@ -59,6 +60,7 @@ const Word = ({ receivedData, isLoading }: Prop) => {
             </div>
           </div>
           <NounMeaning receivedData={receivedData} />
+          <Verb receivedData={receivedData} />
         </>
       )}
     </div>

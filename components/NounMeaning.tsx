@@ -7,10 +7,8 @@ interface Prop {
 const NounMeaning = ({ receivedData }: Prop) => {
   const data = receivedData[0];
   const noun = data.meanings[0];
-  console.log(noun);
 
   const filteredThreeDefinitions = noun.definitions.slice(0, 3);
-  console.log(filteredThreeDefinitions);
 
   return (
     <div className="flex flex-col gap-5">
