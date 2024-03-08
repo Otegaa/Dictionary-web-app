@@ -39,7 +39,6 @@ const Word = ({ receivedData, isLoading }: Prop) => {
     }
   };
 
-  console.log(data);
   return (
     <div className="px-4 py-4">
       {isLoading ? (
@@ -48,7 +47,7 @@ const Word = ({ receivedData, isLoading }: Prop) => {
         <>
           <div className="flex justify-between items-center">
             <div className="flex flex-col">
-              <h1 className="font-inter font-bold text-2xl">{data?.word}</h1>
+              <h1 className="font-bold text-2xl">{data?.word}</h1>
               <h3 className="text-[#A445ED]">{data?.phonetic}</h3>
             </div>
             <div>

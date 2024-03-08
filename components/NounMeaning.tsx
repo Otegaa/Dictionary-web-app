@@ -13,7 +13,7 @@ const NounMeaning = ({ receivedData }: Prop) => {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-5">
-        <h3>{noun.partOfSpeech}</h3>
+        <h3 className="font-bold">{noun.partOfSpeech}</h3>
         <span className="h-px bg-[#979797] grow"></span>
       </div>
       <div>

@@ -10,8 +10,13 @@ import toast from 'react-hot-toast';
 const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
 export default function HomePage() {
+  const [selectedFont, setSelectedFont] = useState<string>('inter');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [receivedData, setReceivedData] = useState<any[]>([]);
+
+  const handleChangeFont = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedFont(e.target.value);
+  };
 
   const handleGetWord = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,8 +40,8 @@ export default function HomePage() {
     }
   };
   return (
-    <div>
-      <Header />
+    <div className={`font-${selectedFont}`}>
+      <Header selectedFont={selectedFont} onHandleChange={handleChangeFont} />
       <Search handleGetWord={handleGetWord} isLoading={isLoading} />
       <Word receivedData={receivedData} isLoading={isLoading} />
     </div>

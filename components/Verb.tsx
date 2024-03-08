@@ -6,12 +6,11 @@ const Verb = ({ receivedData }: Prop) => {
   const data = receivedData[0];
   const verb = data.meanings[1];
   const filteredWord = verb.definitions[0];
-  console.log(filteredWord);
 
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-5">
-        <h3>{verb.partOfSpeech}</h3>
+        <h3 className="font-bold">{verb.partOfSpeech}</h3>
         <span className="h-px bg-[#979797] grow"></span>
       </div>
       <div className="flex flex-col gap-2 border-b-2 pb-8">

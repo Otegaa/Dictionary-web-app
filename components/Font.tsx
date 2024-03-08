@@ -1,21 +1,15 @@
-'use client';
-import { SetStateAction, useState } from 'react';
+interface Props {
+  selectedFont: string;
+  onHandleChange: React.ChangeEventHandler<HTMLSelectElement>;
+}
 
-const Font = () => {
-  const [selectedFont, setSelectedFont] = useState('inter');
-
-  const handleChangeFont = (e: {
-    target: { value: SetStateAction<string> };
-  }) => {
-    setSelectedFont(e.target.value);
-  };
-
+const Font = ({ selectedFont, onHandleChange }: Props) => {
   return (
     <select
       name="font"
       className={`select select-bordered select-[#808080] select-xs max-w-xs focus:outline-none font-${selectedFont}`}
       value={selectedFont}
-      onChange={handleChangeFont}
+      onChange={onHandleChange}
     >
       <option value="inter">Inter</option>
       <option value="inconsolata"> Inconsolata</option>
