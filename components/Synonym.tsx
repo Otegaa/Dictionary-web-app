@@ -8,8 +8,12 @@ const Synonym = ({ receivedData }: Prop) => {
 
   return (
     <div className="flex gap-5">
-      <h4>Synonym</h4>
-      <h3 className="text-[#A445ED] ">{synonym ? synonym : '...'}</h3>
+      {synonym ? (
+        <>
+          <h4>Synonym</h4>
+          <h3 className="text-[#A445ED] ">{synonym}</h3>
+        </>
+      ) : null}
     </div>
   );
 };

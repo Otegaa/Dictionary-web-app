@@ -10,7 +10,6 @@ const Source = ({ receivedData }: Prop) => {
   const data = receivedData[0];
   const links = data.sourceUrls;
   const srcLink = links[0];
-  console.log(srcLink);
 
   return (
     <div>

@@ -5,8 +5,8 @@ interface Prop {
 const Verb = ({ receivedData }: Prop) => {
   const data = receivedData[0];
   const verb = data.meanings[1];
-  const filteredOneDefinition = verb.definitions[0];
-  console.log(filteredOneDefinition);
+  const filteredWord = verb.definitions[0];
+  console.log(filteredWord);
 
   return (
     <div className="flex flex-col gap-5">
@@ -17,9 +17,11 @@ const Verb = ({ receivedData }: Prop) => {
       <div className="flex flex-col gap-2 border-b-2 pb-8">
         <h4>Meaning</h4>
         <ul className="marker:text-[#A445ED] list-disc list-outside ml-4">
-          <li>{filteredOneDefinition.definition}</li>
+          <li>{filteredWord.definition}</li>
         </ul>
-        <p className="ml-4">"{filteredOneDefinition.example}"</p>
+        <p className="ml-4">
+          {filteredWord.example ? `"${filteredWord.example}"` : null}
+        </p>
       </div>
     </div>
   );
