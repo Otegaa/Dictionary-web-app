@@ -19,6 +19,12 @@ export default function HomePage() {
     setSelectedFont(e.target.value);
   };
 
+  const handleFormChange: () => void = () => {
+    if (error) {
+      setError(false);
+    }
+  };
+
   const handleGetWord = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -52,6 +58,7 @@ export default function HomePage() {
         handleGetWord={handleGetWord}
         isLoading={isLoading}
         error={error}
+        handleFormChange={handleFormChange}
       />
       <Word receivedData={receivedData} isLoading={isLoading} />
     </div>

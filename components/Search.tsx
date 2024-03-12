@@ -4,9 +4,15 @@ interface Props {
   handleGetWord: (event: React.FormEvent<HTMLFormElement>) => void;
   isLoading: boolean;
   error: boolean;
+  handleFormChange: () => void;
 }
 
-const Search = ({ handleGetWord, isLoading, error }: Props) => {
+const Search = ({
+  handleGetWord,
+  isLoading,
+  error,
+  handleFormChange,
+}: Props) => {
   return (
     <div className="px-4">
       <form
@@ -14,6 +20,7 @@ const Search = ({ handleGetWord, isLoading, error }: Props) => {
           error ? 'input-error' : ''
         } input flex items-center bg-[#E9E9E9]`}
         onSubmit={handleGetWord}
+        onChange={handleFormChange}
       >
         <input
           type="text"
