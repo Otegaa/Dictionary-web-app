@@ -3,20 +3,23 @@ import React from 'react';
 interface Props {
   handleGetWord: (event: React.FormEvent<HTMLFormElement>) => void;
   isLoading: boolean;
+  error: boolean;
 }
 
-const Search = ({ handleGetWord, isLoading }: Props) => {
+const Search = ({ handleGetWord, isLoading, error }: Props) => {
   return (
     <div className="px-4">
       <form
-        className="input flex items-center bg-[#E9E9E9]"
+        className={`${
+          error ? 'input-error' : ''
+        } input flex items-center bg-[#E9E9E9]`}
         onSubmit={handleGetWord}
       >
         <input
           type="text"
           placeholder="Search..."
           name="searchWord"
-          required
+          // required
           className="py-2 px-2 grow focus:outline-none"
           disabled={isLoading}
         />
