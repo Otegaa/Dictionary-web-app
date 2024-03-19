@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Header from '../components/Header';
 import Search from '../components/Search';
@@ -14,6 +14,7 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [receivedData, setReceivedData] = useState<any[]>([]);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChangeFont = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFont(e.target.value);
@@ -51,6 +52,21 @@ export default function HomePage() {
       setIsLoading(false);
     }
   };
+
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (formRef.current && !formRef.current.contains(e.target as Node | null)) {
+      setError(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
   return (
     <div className={`font-${selectedFont}`}>
       <Header selectedFont={selectedFont} onHandleChange={handleChangeFont} />
@@ -59,6 +75,7 @@ export default function HomePage() {
         isLoading={isLoading}
         error={error}
         handleFormChange={handleFormChange}
+        formRef={formRef}
       />
       <Word receivedData={receivedData} isLoading={isLoading} />
     </div>

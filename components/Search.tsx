@@ -5,6 +5,7 @@ interface Props {
   isLoading: boolean;
   error: boolean;
   handleFormChange: () => void;
+  formRef: React.RefObject<HTMLFormElement>;
 }
 
 const Search = ({
@@ -12,6 +13,7 @@ const Search = ({
   isLoading,
   error,
   handleFormChange,
+  formRef,
 }: Props) => {
   return (
     <div className="px-4">
@@ -21,6 +23,7 @@ const Search = ({
         } input flex items-center bg-[#E9E9E9]`}
         onSubmit={handleGetWord}
         onChange={handleFormChange}
+        ref={formRef}
       >
         <input
           type="text"
