@@ -1,3 +1,4 @@
+import { useApp } from '@/contexts/AppContext';
 import React from 'react';
 
 interface Props {
@@ -8,13 +9,9 @@ interface Props {
   formRef: React.RefObject<HTMLFormElement>;
 }
 
-const Search = ({
-  handleGetWord,
-  isLoading,
-  error,
-  handleFormChange,
-  formRef,
-}: Props) => {
+const Search = () => {
+  const { handleGetWord, isLoading, error, handleFormChange, formRef } =
+    useApp();
   return (
     <div className="px-4">
       <form

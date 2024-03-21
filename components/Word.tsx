@@ -9,13 +9,15 @@ import toast from 'react-hot-toast';
 import Verb from './Verb';
 import Source from './Source';
 import { useState } from 'react';
+import { useApp } from '@/contexts/AppContext';
 
-interface Prop {
-  receivedData: Record<string, any>[];
-  isLoading: boolean;
-}
+// interface Prop {
+//   receivedData: Record<string, any>[];
+//   isLoading: boolean;
+// }
 
-const Word = ({ receivedData, isLoading }: Prop) => {
+const Word = () => {
+  const { receivedData, isLoading } = useApp();
   const [isHovered, setIsHovered] = useState(false);
 
   if (receivedData.length === 0) {
