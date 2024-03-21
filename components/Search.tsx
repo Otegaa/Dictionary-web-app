@@ -1,14 +1,6 @@
 import { useApp } from '@/contexts/AppContext';
 import React from 'react';
 
-interface Props {
-  handleGetWord: (event: React.FormEvent<HTMLFormElement>) => void;
-  isLoading: boolean;
-  error: boolean;
-  handleFormChange: () => void;
-  formRef: React.RefObject<HTMLFormElement>;
-}
-
 const Search = () => {
   const { handleGetWord, isLoading, error, handleFormChange, formRef } =
     useApp();

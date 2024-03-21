@@ -1,8 +1,12 @@
+import { useApp } from '@/contexts/AppContext';
+
 interface Prop {
   receivedData: Record<string, any>[];
 }
 
-const Verb = ({ receivedData }: Prop) => {
+const Verb = () => {
+  const { receivedData } = useApp();
+
   const data = receivedData[0];
   const verb = data?.meanings[1];
   const filteredWord = verb?.definitions[0];

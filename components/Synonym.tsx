@@ -1,12 +1,10 @@
+import { useApp } from '@/contexts/AppContext';
 import Link from 'next/link';
-
-interface Prop {
-  receivedData: Record<string, any>[];
-}
 
 const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
-const Synonym = ({ receivedData }: Prop) => {
+const Synonym = () => {
+  const { receivedData } = useApp();
   const data = receivedData[0];
   const synonym = data?.meanings[0]?.synonyms[0];
 

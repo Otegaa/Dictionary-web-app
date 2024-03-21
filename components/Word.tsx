@@ -11,11 +11,6 @@ import Source from './Source';
 import { useState } from 'react';
 import { useApp } from '@/contexts/AppContext';
 
-// interface Prop {
-//   receivedData: Record<string, any>[];
-//   isLoading: boolean;
-// }
-
 const Word = () => {
   const { receivedData, isLoading } = useApp();
   const [isHovered, setIsHovered] = useState(false);
@@ -83,9 +78,9 @@ const Word = () => {
               )}
             </div>
           </div>
-          <NounMeaning receivedData={receivedData} />
-          <Verb receivedData={receivedData} />
-          <Source receivedData={receivedData} />
+          <NounMeaning />
+          <Verb />
+          <Source />
         </>
       )}
     </div>

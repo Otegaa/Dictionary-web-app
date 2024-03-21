@@ -1,8 +1,3 @@
-// interface Props {
-//   selectedFont: string;
-//   onHandleChange: React.ChangeEventHandler<HTMLSelectElement>;
-// }
-
 import { useApp } from '@/contexts/AppContext';
 
 const Font = () => {

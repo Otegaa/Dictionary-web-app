@@ -1,12 +1,15 @@
 import Image from 'next/image';
 
 import newWindowImg from '../public/assets/images/icon-new-window.svg';
+import { useApp } from '@/contexts/AppContext';
 
 interface Prop {
   receivedData: Record<string, any>[];
 }
 
-const Source = ({ receivedData }: Prop) => {
+const Source = () => {
+  const { receivedData } = useApp();
+
   const data = receivedData[0];
   const links = data.sourceUrls;
   const srcLink = links[0];

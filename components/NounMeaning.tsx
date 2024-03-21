@@ -1,10 +1,8 @@
+import { useApp } from '@/contexts/AppContext';
 import Synonym from './Synonym';
 
-interface Prop {
-  receivedData: Record<string, any>[];
-}
-
-const NounMeaning = ({ receivedData }: Prop) => {
+const NounMeaning = () => {
+  const { receivedData } = useApp();
   const data = receivedData[0];
   const noun = data.meanings[0];
 
@@ -24,7 +22,7 @@ const NounMeaning = ({ receivedData }: Prop) => {
           })}
         </ul>
       </div>
-      <Synonym receivedData={receivedData} />
+      <Synonym />
     </div>
   );
 };
