@@ -1,10 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 
-import Header from '../components/Header';
-import Search from '../components/Search';
-import Word from '../components/Word';
 import { useApp } from '@/contexts/AppContext';
 
 export default function HomePage() {
@@ -17,11 +14,5 @@ export default function HomePage() {
     };
   }, []);
 
-  return (
-    <div className={`font-${selectedFont}`}>
-      <Header />
-      <Search />
-      <Word />
-    </div>
-  );
+  return <div>Please start searching for a word</div>;
 }

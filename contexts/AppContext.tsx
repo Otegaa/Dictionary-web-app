@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { createContext, useContext, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -12,7 +13,10 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [receivedData, setReceivedData] = useState<any[]>([]);
+
   const formRef = useRef<HTMLFormElement>(null);
+
+  const router = useRouter();
 
   const handleChangeFont = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFont(e.target.value);
@@ -29,7 +33,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     setIsLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const word = formData.get('searchWord');
+    const word = formData.get('searchWord') as string;
 
     try {
       if (!word) {
@@ -44,6 +48,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
       const data = await res.json();
       setReceivedData(data);
+      router.push(`/search?query=${encodeURIComponent(word)}`);
     } catch (error: any) {
       toast.error(error.message);
     } finally {
@@ -63,6 +68,8 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         selectedFont,
         isLoading,
         receivedData,
+        error,
+        formRef,
         handleChangeFont,
         handleGetWord,
         handleFormChange,
