@@ -28,12 +28,8 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const handleGetWord = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSearchWord = async (word: string) => {
     setIsLoading(true);
-
-    const formData = new FormData(e.currentTarget);
-    const word = formData.get('searchWord') as string;
 
     try {
       if (!word) {
@@ -56,6 +52,19 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const handleGetWord = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const word = formData.get('searchWord') as string;
+
+    handleSearchWord(word);
+  };
+
+  const handleGetSynonym = async (synonym: string) => {
+    handleSearchWord(synonym);
+  };
+
   const handleOutsideClick = (e: MouseEvent) => {
     if (formRef.current && !formRef.current.contains(e.target as Node | null)) {
       setError(false);
@@ -72,6 +81,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         formRef,
         handleChangeFont,
         handleGetWord,
+        handleGetSynonym,
         handleFormChange,
         handleOutsideClick,
       }}
