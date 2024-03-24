@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { createContext, useContext, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const AppContext = createContext<any>(undefined);
@@ -17,6 +17,22 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const router = useRouter();
+
+  useEffect(() => {
+    const handleBackNavigation = (event: { preventDefault: () => void }) => {
+      const currentUrl = window.location.href;
+      if (currentUrl.startsWith(`${window.location.origin}/search`)) {
+        event.preventDefault();
+        router.back();
+      }
+    };
+
+    window.onpopstate = handleBackNavigation;
+
+    return () => {
+      window.onpopstate = null;
+    };
+  }, []);
 
   const handleChangeFont = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFont(e.target.value);
